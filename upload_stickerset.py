@@ -42,10 +42,11 @@ async def upload_stickerset(app: pg.Client, args: argparse.Namespace):
             exit(1)
 
         # TODO: check if shortname already in use and suggest another name if it is (ask user?)
+        # TODO: as for now check_stickerset_short_name() throws an exception if name is occupied
         stickerset_short_name: str
         if "shortname" in vars(args).keys():
             stickerset_short_name = await get_suggested_stickerset_short_name(app, args.title)
-        elif await check_stickerset_short_name(app, args.short_name):
+        elif not await check_stickerset_short_name(app, args.short_name):
             stickerset_short_name = args.short_name
         else:
             suggested_short_name = await get_suggested_stickerset_short_name(app, args.title)

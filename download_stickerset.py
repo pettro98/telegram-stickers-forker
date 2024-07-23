@@ -13,6 +13,7 @@ from tg_utils import create_sticker_to_emojis_map, StickerDownloadInfo, StickerI
 
 # TODO: convert to any possible format when downloading
 # TODO: option to create archive?
+# TODO: respect stickerset thumbnail
 async def download_stickerset(app: pg.Client, args: argparse.Namespace):
     async with app:
         stickerset = await find_installed_stickerset(app, args.id, args.short_name, args.title)

@@ -78,5 +78,5 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 # Custom ignore
-.env
+./config
 *.session
